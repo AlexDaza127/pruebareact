@@ -1,0 +1,67 @@
+//state son los datos internos del programa que ya tiene escrito
+/*function Helloworld(props){
+  return(
+    <div id="hello">
+      <h3>{props.subtitle}</h3>
+      {props.mytext}
+    </div>
+  );
+}*/
+
+//cambiando states con class
+
+class Helloworld extends React.Component {
+  state = {
+    show: true
+  }
+
+toggleShow = () => {
+  this.setState({show: !this.state.show})
+}
+
+  render() {
+    if (this.state.show) {
+      return (
+        <div id="hello">
+          <h3>{this.props.subtitle}</h3>
+          {this.props.mytext}<br/><br/>
+          <button onClick={this.toggleShow}>Toggle show</button>
+        </div>
+      );
+    }else{
+      return(
+      <h1>
+        There are not elements<br/><br/>
+        <button onClick={this.toggleShow}>
+          Toggel show
+        </button>
+      </h1>);
+    }
+  }
+}
+
+//concepto Props (mytext)
+
+function App() {
+  return (
+    <div>
+      Este es un componente hecho en react:
+      <Helloworld mytext="Hello Fazt" subtitle="loremp ispum" />
+      <Helloworld mytext="Hello mundo" subtitle="componente 2" />
+      <Helloworld mytext="Hello world" subtitle="componente 3" />
+    </div>
+  );
+}
+
+//minuto 1:16:00 
+
+//esto es lo mismo que declar la function App
+//const App = () => <div>This is other component: <Helloworld/> </div>
+
+//Ahora como hacerlo pero con clases
+/*class App extends React.Component{
+  render() {
+    return <div>This is my component in a class Helloworld!</div>
+  }
+}*/
+
